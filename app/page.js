@@ -26,7 +26,7 @@ const Portfolio = () => {
       {/* Header Section */}
       <div className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold text-[#212529] mb-4">
-          Hi, I'm Alvanza 👋
+          Hi, Im Alvanza 
         </h1>
         <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
             A passionate Informatics Engineering student in the 4th semester with a strong interest in Full-Stack Web Development. 
