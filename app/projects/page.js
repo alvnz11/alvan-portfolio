@@ -2,6 +2,22 @@ import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
+    title: "Facility Damage Reporting System",
+    description: "System to support reporting facility damage at Polinema. Features front-end and back-end integration with a robust database.",
+    tech: ["Full-Stack", "Web Development"],
+    github: "https://github.com/alvnz11",
+    live: null,
+    emoji: "🏢",
+  },
+  {
+    title: "Student Regulation Management",
+    description: "System to manage student regulations at Polinema with a well-designed database structure.",
+    tech: ["Full-Stack", "Web Development"],
+    github: "https://github.com/alvnz11",
+    live: null,
+    emoji: "⚖️",
+  },
+  {
     title: "Portfolio Website",
     description: "Personal portfolio built with Next.js and Tailwind CSS, showcasing my skills and projects.",
     tech: ["Next.js", "Tailwind CSS", "React"],
@@ -9,51 +25,11 @@ const projects = [
     live: null,
     emoji: "🌐",
   },
-  {
-    title: "E-Commerce App",
-    description: "A full-stack e-commerce application with product listing, cart, and checkout features.",
-    tech: ["Laravel", "MySQL", "Bootstrap"],
-    github: "https://github.com/alvnz11",
-    live: null,
-    emoji: "🛒",
-  },
-  {
-    title: "Student Information System",
-    description: "Web-based student data management system with role-based access for admins and students.",
-    tech: ["PHP", "MySQL", "Bootstrap"],
-    github: "https://github.com/alvnz11",
-    live: null,
-    emoji: "🎓",
-  },
-  {
-    title: "Task Management App",
-    description: "A Kanban-style task management application with drag-and-drop support and user authentication.",
-    tech: ["React", "Tailwind CSS", "Node.js"],
-    github: "https://github.com/alvnz11",
-    live: null,
-    emoji: "📋",
-  },
-  {
-    title: "Python Data Analyzer",
-    description: "A Python script for analyzing and visualizing datasets using Pandas and Matplotlib.",
-    tech: ["Python", "Pandas", "Matplotlib"],
-    github: "https://github.com/alvnz11",
-    live: null,
-    emoji: "📊",
-  },
-  {
-    title: "REST API Service",
-    description: "RESTful API for a blog platform with CRUD operations, JWT authentication, and Swagger docs.",
-    tech: ["Laravel", "MySQL", "JWT"],
-    github: "https://github.com/alvnz11",
-    live: null,
-    emoji: "🔌",
-  },
 ];
 
 export default function ProjectsPage() {
   return (
-    <div className="animate-in fade-in duration-500">
+    <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out">
       {/* Page title */}
       <div className="mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-[#212529] mb-2">
@@ -67,7 +43,7 @@ export default function ProjectsPage() {
         {projects.map((project, index) => (
           <div
             key={project.title}
-            className="group bg-gray-50 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
+            className="group bg-gray-50 rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl hover:bg-white transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col"
             style={{ animationDelay: `${index * 80}ms` }}
           >
             {/* Card header */}
