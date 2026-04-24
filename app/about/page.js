@@ -1,36 +1,63 @@
 "use client";
 
-import { useState } from "react";
+import { Award, Briefcase, GraduationCap, Code2, Wrench, Users, MonitorSmartphone } from "lucide-react";
 
-const skills = [
-  { name: "Java", icon: "☕", level: 90 },
-  { name: "JavaScript", icon: "⚡", level: 85 },
-  { name: "Python", icon: "🐍", level: 80 },
-  { name: "HTML5", icon: "🌐", level: 95 },
-  { name: "Bootstrap", icon: "🎨", level: 88 },
-  { name: "PHP", icon: "🐘", level: 75 },
-  { name: "React", icon: "⚛️", level: 82 },
-  { name: "Laravel", icon: "🔥", level: 78 },
-  { name: "Tailwind CSS", icon: "💨", level: 90 },
-  { name: "SQL Server", icon: "🗄️", level: 70 },
-  { name: "MySQL", icon: "🐬", level: 85 },
-  { name: "GitHub", icon: "🐙", level: 88 },
+const experiences = [
+  {
+    role: "Backend Developer",
+    company: "PT Dutakom Wibawa Putra",
+    year: "Internship",
+    description: "Gained hands-on experience as a backend developer, focusing on building and optimizing back-end systems.",
+  },
 ];
 
 const education = [
   {
-    degree: "S1 Teknik Informatika",
-    school: "Universitas XYZ",
-    year: "2023 – Present",
-    description: "Currently in the 4th semester, focusing on software engineering and web development.",
+    degree: "Applied Bachelor in Informatics Engineer",
+    school: "Politeknik Negeri Malang",
+    year: "2023 - Present",
+    description: "Current GPA: 3.85 / 4.00",
+  },
+  {
+    degree: "Mathematics and Science (MIPA)",
+    school: "SMA Negeri 1 Lawang",
+    year: "2020 - 2023",
+    description: "Final Score: 91.03 / 100.00",
   },
 ];
 
-export default function AboutPage() {
-  const [activeSkill, setActiveSkill] = useState(null);
+const certifications = [
+  "Junior Web Developer (Vocational School Graduate Academy) – Digitalent Scholarship",
+  "Belajar Dasar AI – Dicoding Indonesia",
+  "Memulai Pemrograman Dengan Java – Dicoding Indonesia"
+];
 
+const skillCategories = [
+  {
+    title: "Hard Skills",
+    icon: <Code2 className="w-5 h-5" />,
+    items: ["HTML", "CSS", "Javascript", "REST API", "GraphQL", "Ruby", "Rails", "React", "Tailwind CSS", "Bootstrap", "PHP", "Laravel", "Dart", "Flutter", "MySQL", "SQL Server", "PostgreSQL"]
+  },
+  {
+    title: "Tools & Environment",
+    icon: <Wrench className="w-5 h-5" />,
+    items: ["Git", "Github", "Postman", "Visual Studio Code", "Android Studio"]
+  },
+  {
+    title: "Soft Skills",
+    icon: <Users className="w-5 h-5" />,
+    items: ["Problem Solving", "Time Management", "Team Work", "Collaboration"]
+  },
+  {
+    title: "Languages",
+    icon: <MonitorSmartphone className="w-5 h-5" />,
+    items: ["Indonesian (Native)", "English (Beginner)"]
+  }
+];
+
+export default function AboutPage() {
   return (
-    <div className="animate-in fade-in duration-500">
+    <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out">
       {/* Page title */}
       <div className="mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-[#212529] mb-2">
@@ -39,32 +66,58 @@ export default function AboutPage() {
         <p className="text-gray-500 text-sm uppercase tracking-widest font-semibold">Know more about me</p>
       </div>
 
-      {/* Bio */}
-      <div className="bg-gray-50 rounded-2xl border border-gray-100 p-6 mb-8">
-        <h2 className="text-xl font-bold text-[#212529] mb-4">Who Am I?</h2>
-        <p className="text-gray-600 leading-relaxed mb-4">
-          Hi! I&apos;m <span className="font-semibold text-[#212529]">Alvanza Saputra Yudha</span>, a passionate Informatics Engineering student
-          currently in my 4th semester. I have a strong interest in Full-Stack Web Development and love building
-          things for the web — from polished user interfaces to robust back-end systems.
-        </p>
-        <p className="text-gray-600 leading-relaxed">
-          I&apos;m highly motivated to explore the latest web technologies and am always eager to take on new challenges.
-          Adaptable and committed to continuous self-improvement, I thrive in fast-evolving technological environments.
-        </p>
+      {/* Experience */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-[#212529] mb-4 flex items-center gap-2">
+          <Briefcase className="w-6 h-6" /> Experience
+        </h2>
+        <div className="space-y-4">
+          {experiences.map((exp, i) => (
+            <div key={i} className="bg-gray-50 rounded-2xl border border-gray-100 p-5 flex flex-col sm:flex-row gap-4 items-start hover:shadow-xl hover:-translate-y-1 hover:bg-white transition-all duration-300">
+              <div className="p-3 bg-white rounded-xl shadow-sm hidden sm:block">
+                <Briefcase className="w-6 h-6 text-[#212529]" />
+              </div>
+              <div>
+                <h3 className="font-bold text-[#212529] text-lg">{exp.role}</h3>
+                <p className="text-[#2563EB] font-medium text-sm mb-2">{exp.company} <span className="text-gray-400 mx-1">•</span> <span className="text-gray-500">{exp.year}</span></p>
+                <p className="text-gray-600 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Education */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-[#212529] mb-4">Education</h2>
+        <h2 className="text-2xl font-bold text-[#212529] mb-4 flex items-center gap-2">
+          <GraduationCap className="w-6 h-6" /> Education
+        </h2>
         <div className="space-y-4">
           {education.map((edu, i) => (
-            <div key={i} className="bg-gray-50 rounded-2xl border border-gray-100 p-5 flex gap-4 items-start">
-              <div className="text-3xl">🎓</div>
-              <div>
-                <h3 className="font-bold text-[#212529]">{edu.degree}</h3>
-                <p className="text-gray-600 font-medium text-sm">{edu.school} · {edu.year}</p>
-                <p className="text-gray-500 text-sm mt-1">{edu.description}</p>
+            <div key={i} className="bg-gray-50 rounded-2xl border border-gray-100 p-5 flex flex-col sm:flex-row gap-4 items-start hover:shadow-xl hover:-translate-y-1 hover:bg-white transition-all duration-300">
+              <div className="p-3 bg-white rounded-xl shadow-sm hidden sm:block">
+                <GraduationCap className="w-6 h-6 text-[#212529]" />
               </div>
+              <div>
+                <h3 className="font-bold text-[#212529] text-lg">{edu.school}</h3>
+                <p className="text-gray-600 font-medium text-sm mb-1">{edu.degree} <span className="text-gray-400 mx-1">•</span> <span className="text-gray-500">{edu.year}</span></p>
+                <p className="text-gray-500 text-sm font-semibold">{edu.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Certifications */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-[#212529] mb-4 flex items-center gap-2">
+          <Award className="w-6 h-6" /> Certifications
+        </h2>
+        <div className="grid grid-cols-1 gap-3">
+          {certifications.map((cert, i) => (
+            <div key={i} className="bg-gray-50 rounded-xl border border-gray-100 p-4 flex items-center gap-3 hover:bg-white hover:shadow-md hover:scale-[1.02] transition-all duration-300">
+              <Award className="w-5 h-5 text-[#E1306C]" />
+              <span className="text-gray-700 text-sm font-medium">{cert}</span>
             </div>
           ))}
         </div>
@@ -72,30 +125,22 @@ export default function AboutPage() {
 
       {/* Skills */}
       <div>
-        <h2 className="text-2xl font-bold text-[#212529] mb-4">Tech Skills</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="group relative p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-[#212529] hover:text-white transition-all duration-300 cursor-pointer shadow-sm"
-              onMouseEnter={() => setActiveSkill(skill.name)}
-              onMouseLeave={() => setActiveSkill(null)}
-              style={{ animationDelay: `${index * 40}ms` }}
-            >
-              <div className="text-center mb-2">
-                <div className="text-2xl mb-1 group-hover:scale-110 transition-transform duration-300">{skill.icon}</div>
-                <h3 className="font-medium text-sm">{skill.name}</h3>
+        <h2 className="text-2xl font-bold text-[#212529] mb-4 flex items-center gap-2">
+          <Code2 className="w-6 h-6" /> Skills & Tools
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {skillCategories.map((cat, i) => (
+            <div key={i} className="bg-gray-50 rounded-2xl border border-gray-100 p-5 hover:shadow-xl hover:-translate-y-1 hover:bg-white transition-all duration-300">
+              <h3 className="font-bold text-[#212529] mb-4 flex items-center gap-2">
+                {cat.icon} {cat.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((item, j) => (
+                  <span key={j} className="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 text-xs font-medium rounded-lg shadow-sm hover:scale-110 hover:-translate-y-1 hover:bg-[#212529] hover:text-white hover:border-[#212529] transition-all duration-300 cursor-default">
+                    {item}
+                  </span>
+                ))}
               </div>
-              {/* Progress bar */}
-              <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-[#212529] group-hover:bg-white transition-all duration-500"
-                  style={{ width: activeSkill === skill.name ? `${skill.level}%` : "0%" }}
-                />
-              </div>
-              {activeSkill === skill.name && (
-                <span className="block text-center text-xs mt-1 opacity-80">{skill.level}%</span>
-              )}
             </div>
           ))}
         </div>
